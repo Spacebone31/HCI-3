@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+        <title>Endless Reading</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <style>
+            h1, h2, h3, h4, h5, h6 {
+                font-family: "Playfair Display";
+                letter-spacing: 5px;
+            }
+            body {
+                font-family: "Times New Roman", Georgia, Serif; 
+                background-color: beige;
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+            body > div {
+                flex: 1;
+            }
+            #article-list {
+                padding: 20px;
+            }
+            .article {
+                border-bottom: 1px solid #ccc;
+                padding: 10px;
+            }
+            footer {
+                position: relative;
+                bottom: 1;
+                width: 100%;
+            }
+        </style>
+        <script>
+            $(document).ready(function () {
+                function isScrolledToBottom() {
+                    return $(window).scrollTop() + $(window).height() >= $(document).height() - 100;
+                }
+                function loadMoreArticles() {
+                    for (let i = 0; i < 5; i++) {
+                        $('#article-list').append('<li class="article">New Article</li>');
+                    }
+                }
+                loadMoreArticles();
+                $(window).scroll(function () {
+                    if (isScrolledToBottom()) {
+                        loadMoreArticles();
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="w3-bar w3-pale-yellow">
+            <a href="index.html" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-home w3-xxlarge"></i></a>
+            <a href="about.html" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-user w3-xxlarge"></i></a>
+        </div>
+
+        <header class="w3-container w3-theme w3-padding" id="myHeader">
+            <div class="w3-center">
+                <h4>HCI - Week 8 - Assignment</h4>
+                <h1 class="w3-xxxlarge w3-animate-bottom">Endless Reading</h1>
+            </div>
+        </header>
+
+        <br>
+        <ul id="article-list">
+            <li class="article">Article 1</li>
+            <li class="article">Article 2</li>
+        </ul>
+        
+        <footer class="w3-container w3-theme-dark w3-padding-16">
+            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+        </footer>
+    </body>
+</html>

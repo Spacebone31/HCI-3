@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+        <title>Dynamic Price Calculator</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <style>
+            body {font-family: "Times New Roman", Georgia, Serif; background-color: beige;}
+            h1, h2, h3, h4, h5, h6 {
+                font-family: "Playfair Display";
+                letter-spacing: 5px;
+            }
+        </style>
+        <script>
+            $(document).ready(function () {
+                function updateTotalPrice() {
+                    var quantity = parseInt($('#quantity').val());
+                    var featuresPrice = parseInt($('#features').val());
+                    var totalPrice = quantity + featuresPrice;
+                    
+                    $('#totalPrice').val('$' + totalPrice.toFixed(2));
+                }
+
+                $('#quantity, #features').change(function () {
+                    updateTotalPrice();
+                });
+        
+
+                updateTotalPrice();
+            });
+        </script>
+        
+    </head>
+    <body>
+        <div class="w3-bar w3-pale-yellow">
+            <a href="index.html" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-home w3-xxlarge"></i></a>
+            <a href="about.html" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-user w3-xxlarge"></i></a>
+        </div>
+
+        <header class="w3-container w3-theme w3-padding" id="myHeader">
+            <div class="w3-center">
+                <h4>HCI - Week 8 - Assignment</h4>
+                <h1 class="w3-xxxlarge w3-animate-bottom">Dynamic Price Calculator</h1>
+            </div>
+        </header>
+
+        <br>
+        <div class="container mt-5">
+            <form id="priceCalculatorForm">
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" class="form-control" id="quantity" value="1" min="1">
+                </div>
+                
+                <div class="form-group">
+                    <label for="features">Features:</label>
+                    <select class="form-control" id="features">
+                        <option value="0">Basic</option>
+                        <option value="50">Standard (+$50)</option>
+                        <option value="100">Premium (+$100)</option>
+                    </select>
+                </div>
+        
+                <div class="form-group">
+                    <label for="totalPrice">Total Price:</label>
+                    <input type="text" class="form-control" id="totalPrice" readonly>
+                </div>
+            </form>
+        </div>        
+        
+        <footer class="w3-container w3-theme-dark w3-padding-16 w3-bottom">
+            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+        </footer>
+    </body>
+</html>

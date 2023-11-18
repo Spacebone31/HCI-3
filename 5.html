@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+        <title>Accordion FAQs</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <style>
+            h1, h2, h3, h4, h5, h6 {
+                font-family: "Playfair Display";
+                letter-spacing: 5px;
+            }
+            body {
+                font-family: "Times New Roman", Georgia, Serif; 
+                background-color: beige;
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+            .container {
+                flex: 1;
+            }
+            .faq-question {
+                cursor: pointer;
+            }
+            footer {
+                width: 100%;
+            }
+        </style>
+        <script>
+            $(document).ready(function(){
+                $(".faq-question").click(function(){
+                    $($(this).data("target")).collapse("toggle");
+                    $(this).toggleClass("w3-light-gray");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="w3-bar w3-pale-yellow">
+            <a href="index.html" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-home w3-xxlarge"></i></a>
+            <a href="about.html" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-user w3-xxlarge"></i></a>
+        </div>
+
+        <header class="w3-container w3-theme w3-padding" id="myHeader">
+            <div class="w3-center">
+                <h4>HCI - Week 8 - Assignment</h4>
+                <h1 class="w3-xxxlarge w3-animate-bottom">Accordion FAQs</h1>
+            </div>
+        </header>
+
+        <br>
+        <div class="container mt-5">
+            <h2>Questions</h2>
+            <div class="w3-card w3-margin-bottom">
+                <div class="w3-container w3-padding faq-question" data-toggle="collapse" data-target="#faq1">
+                    <h4>What type of books do you like the most?</h4>
+                </div>
+                <div id="faq1" class="collapse w3-container w3-padding-small">
+                    <p>I like to read manhwa the most.</p>
+                </div>
+            </div>
+            <div class="w3-card w3-margin-bottom">
+                <div class="w3-container w3-padding faq-question" data-toggle="collapse" data-target="#faq2">
+                    <h4>What is your favorite genre?</h4>
+                </div>
+                <div id="faq2" class="collapse w3-container w3-padding-small">
+                    <p>My favorite genre is action and comedy.</p>
+                </div>
+            </div>
+            <div class="w3-card w3-margin-bottom">
+                <div class="w3-container w3-padding faq-question" data-toggle="collapse" data-target="#faq3">
+                    <h4>What is your favorite story plot?</h4>
+                </div>
+                <div id="faq3" class="collapse w3-container w3-padding-small">
+                    <p>My favorite plot is where the main character regress and takes revenge on his/her enemies.</p>
+                </div>
+            </div>
+            <div class="w3-card w3-margin-bottom">
+                <div class="w3-container w3-padding faq-question" data-toggle="collapse" data-target="#faq4">
+                    <h4>What is your most favorite manhwa?</h4>
+                </div>
+                <div id="faq4" class="collapse w3-container w3-padding-small">
+                    <p>There are many manhwa I like, but probably "Devil Return To School Days".</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="w3-container w3-theme-dark w3-padding-16">
+            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+        </footer>
+    </body>
+</html>

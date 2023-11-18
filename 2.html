@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+        <title>Image Gallery with Filters</title>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <style>
+            body {
+                font-family: "Times New Roman", Georgia, Serif; 
+                background-color: beige;
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+            body > div {
+                flex: 1;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                font-family: "Playfair Display";
+                letter-spacing: 5px;
+            }
+            .gallery {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                margin: 20px;
+            }
+            .gallery img {
+                width: 300px;
+                height: 200px;
+                object-fit: cover;
+                margin: 10px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+            .filter-btns {
+                margin: 20px;
+            }
+            footer {
+                position: relative;
+                bottom: 1;
+                width: 100%;
+            }
+        </style>
+        <script>
+            function filterSelection(category) {
+                if (category === 'all') {
+                    $('.image').show();
+                } 
+                else {
+                    $('.image').hide();
+                    $('.image.' + category).show();
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="w3-bar w3-pale-yellow">
+            <a href="index.html" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-home w3-xxlarge"></i></a>
+            <a href="about.html" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-user w3-xxlarge"></i></a>
+        </div>
+
+        <header class="w3-container w3-theme w3-padding" id="myHeader">
+            <div class="w3-center">
+                <h4>HCI - Week 8 - Assignment</h4>
+                <h1 class="w3-xxxlarge w3-animate-bottom">Image Gallery with Filters</h1>
+            </div>
+        </header>
+
+        <div class="w3-bar filter-btns">
+            <button class="w3-bar-item w3-button" onclick="filterSelection('all')">All</button>
+            <button class="w3-bar-item w3-button" onclick="filterSelection('anime')">Anime</button>
+            <button class="w3-bar-item w3-button" onclick="filterSelection('k-drama')">K-Drama</button>
+            <button class="w3-bar-item w3-button" onclick="filterSelection('movie')">Movie</button>
+        </div>
+        <hr>
+        <div class="gallery">
+            <div class="image anime">
+                <img src="slime.png" alt="Tensei shitara Slime Datta Ken">
+                <p class="w3-center">Tensei shitara Slime Datta Ken</p>
+            </div>
+            <div class="image anime">
+                <img src="bc.png" alt="Black Clover">
+                <p class="w3-center">Black Clover</p>
+            </div>
+            <div class="image k-drama">
+                <img src="korean-drama-itaewon-class-stars-kjzzburs4e8bzdq6.jpg" alt="Itaewon Class">
+                <p class="w3-center">Itaewon Class</p>
+            </div>
+            <div class="image movie">
+                <img src="olympus.jpg" alt="Olympus has Fallen">
+                <p class="w3-center">Olympus Has Fallen</p>
+            </div>
+            <div class="image k-drama">
+                <img src="taxi-driver.jpg" alt="Taxi Driver">
+                <p class="w3-center">Taxi Driver</p>
+            </div>
+            <div class="image k-drama">
+                <img src="dots.jpg" alt="Descendants of The Sun">
+                <p class="w3-center">Descendants of The Sun</p>
+            </div>
+            <div class="image movie">
+                <img src="unlocked.jpg" alt="Unlocked">
+                <p class="w3-center">Unlocked</p>
+            </div>
+            <div class="image movie">
+                <img src="dragon.jpg" alt="How to Train your Dragon">
+                <p class="w3-center">How to Train your Dragon</p>
+            </div>
+            <div class="image anime">
+                <img src="ds.png" alt="Kimetsu no Yaiba">
+                <p class="w3-center">Kimetsu no Yaiba</p>
+            </div>
+            <div class="image k-drama">
+                <img src="dr_romantic_1.width-800.jpegquality-80.jpg" alt="Dr Romantic">
+                <p class="w3-center">Dr Romantic</p>
+            </div>
+            <div class="image movie">
+                <img src="bloodshot.jpg" alt="Bloodshot">
+                <p class="w3-center">Bloodshot</p>
+            </div>
+            <div class="image anime">
+                <img src="danmachi.png" alt="Dungeon ni Deai wo Motomeru no wa Machigatteiru Darou ka" class="w3-center">
+                <p class="w3-center">Dungeon ni Deai wo Motomeru no wa Machigatteiru Darou ka</p>
+            </div>
+        </div>
+        <hr>
+        <footer class="w3-container w3-theme-dark w3-padding-16">
+            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+        </footer>
+    </body>
+</html>

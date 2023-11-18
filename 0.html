@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tab Widget</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container mt-4">
+  <ul class="nav nav-tabs" id="myTabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#newsTab">News</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#reviewsTab">Reviews</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#commentsTab">Comments</a>
+    </li>
+  </ul>
+
+  <div class="tab-content mt-2">
+    <div class="tab-pane fade show active" id="newsTab">
+    <h3>Latest News</h3>
+    <div id="newsContent"></div>
+  </div>
+  
+    <div class="tab-pane fade" id="reviewsTab">
+      <h3>Product Reviews</h3>
+      <p>This is the content for the Reviews tab.</p>
+    </div>
+    <div class="tab-pane fade" id="commentsTab">
+      <h3>User Comments</h3>
+      <p>This is the content for the Comments tab.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $("#myTabs a").click(function(e){
+      e.preventDefault();
+      $(this).tab('show');
+    });
+  });
+  // Sample array of news items
+  var newsData = [
+    { title: 'Breaking News 1', content: 'This is an important news update.' },
+    { title: 'Election Results', content: 'Results are in, and surprises abound.' },
+    { title: 'Tech Advancements', content: 'New technology breakthrough announced.' }
+  ];
+
+  // Function to populate the news content
+  function populateNews() {
+    var newsContentDiv = $('#newsContent');
+
+    // Clear existing content
+    newsContentDiv.empty();
+
+    // Iterate through newsData and append items to the newsContentDiv
+    for (var i = 0; i < newsData.length; i++) {
+      var newsItem = newsData[i];
+      var newsHtml = '<div class="news-item">';
+      newsHtml += '<h4>' + newsItem.title + '</h4>';
+      newsHtml += '<p>' + newsItem.content + '</p>';
+      newsHtml += '</div>';
+
+      // Append the news item to the newsContentDiv
+      newsContentDiv.append(newsHtml);
+    }
+  }
+
+  // Populate news on page load
+  $(document).ready(function () {
+    populateNews();
+  });
+</script>
+
+</body>
+</html>
